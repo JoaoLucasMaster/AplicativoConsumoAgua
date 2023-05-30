@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -19,6 +20,10 @@ public class MainActivity extends AppCompatActivity {
     private TextInputLayout weightInputLayout;
     private TextInputLayout ageInputLayout;
     private SharedPreferences sharedPreferences;
+
+    private Button reminder;
+
+    private Button alarm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +61,8 @@ public class MainActivity extends AppCompatActivity {
 
             // Seu código de cálculo aqui
             int litros = weight*35;
+
+
             // Salve o último valor de consumo de água calculado no SharedPreferences
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putInt("lastWaterIntake", litros); // Substitua 100 pelo valor real calculado
