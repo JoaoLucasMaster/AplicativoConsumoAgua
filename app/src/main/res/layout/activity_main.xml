@@ -5,6 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="28dp"
+        android:text=":"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toStartOf="@+id/textMinute"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textHour"
+        app:layout_constraintTop_toBottomOf="@+id/reminderBtn" />
+
+    <TextView
+        android:id="@+id/textMinute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginRight="56dp"
+        android:text="00"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textHour"
+        app:layout_constraintTop_toBottomOf="@+id/reminderBtn" />
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
@@ -42,8 +71,8 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ageInputLayout"
-        android:layout_width="337dp"
-        android:layout_height="55dp"
+        android:layout_width="330dp"
+        android:layout_height="51dp"
         android:layout_marginTop="16dp"
         android:hint="Idade:"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,7 +82,7 @@
         <EditText
             android:id="@+id/ageEditText"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="55dp"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="numberDecimal" />
@@ -81,7 +110,7 @@
         app:srcCompat="@drawable/ciclo" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/reminderBtn"
         android:layout_width="142dp"
         android:layout_height="47dp"
         android:layout_marginStart="36dp"
@@ -94,11 +123,26 @@
         app:layout_constraintTop_toBottomOf="@+id/ageInputLayout" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/alarmBtn"
+        android:layout_width="143dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="104dp"
+        android:text="Alarme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.134"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ageInputLayout" />
+
+    <TextView
+        android:id="@+id/textHour"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Alarme"
-        tools:layout_editor_absoluteX="157dp"
-        tools:layout_editor_absoluteY="614dp" />
+        android:layout_marginStart="112dp"
+        android:layout_marginLeft="112dp"
+        android:layout_marginTop="28dp"
+        android:text="00"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/alarmBtn"
+        app:layout_constraintTop_toBottomOf="@+id/reminderBtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
