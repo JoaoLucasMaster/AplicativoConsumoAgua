@@ -36,22 +36,22 @@ public class ResultActivity extends AppCompatActivity {
 
         // Lógica para definir a imagem com base nas condições do consumo de água e idade
         if (waterIntake < 2000 && age >= 18) {
-            resultImageView.setImageResource(R.drawable.baixo_consumo);
+            resultImageView.setImageResource(R.drawable.poucaagua);
             resultTextView.setText("Quantidade de água calculada: " + waterIntake + " ml\nÚltimo valor calculado: " + lastWaterIntake + " ml\nBaixo consumo para adulto!");
         } else if (waterIntake < 2000 && age < 18) {
-            resultImageView.setImageResource(R.drawable.baixo_consumo);
+            resultImageView.setImageResource(R.drawable.poucaagua);
             resultTextView.setText("Quantidade de água calculada: " + waterIntake + " ml\nÚltimo valor calculado: " + lastWaterIntake + " ml\nBaixo consumo para criança!");
         } else if (waterIntake >= 2000 && waterIntake < 3000 && age >= 18) {
-            resultImageView.setImageResource(R.drawable.medio_consumo);
+            resultImageView.setImageResource(R.drawable.mediaagua);
             resultTextView.setText("Quantidade de água calculada: " + waterIntake + " ml\nÚltimo valor calculado: " + lastWaterIntake + " ml\nConsumo médio para adulto!");
         } else if (waterIntake >= 2000 && waterIntake < 3000 && age < 18) {
-            resultImageView.setImageResource(R.drawable.medio_consumo);
+            resultImageView.setImageResource(R.drawable.mediaagua);
             resultTextView.setText("Quantidade de água calculada: " + waterIntake + " ml\nÚltimo valor calculado: " + lastWaterIntake + " ml\nConsumo médio para criança!");
         } else if (waterIntake >= 3000 && age >= 18) {
-            resultImageView.setImageResource(R.drawable.alto_consumo);
+            resultImageView.setImageResource(R.drawable.muitaagua);
             resultTextView.setText("Quantidade de água calculada: " + waterIntake + " ml\nÚltimo valor calculado: " + lastWaterIntake + " ml\nAlto consumo para adulto!");
         } else {
-            resultImageView.setImageResource(R.drawable.alto_consumo);
+            resultImageView.setImageResource(R.drawable.muitaagua);
             resultTextView.setText("Quantidade de água calculada: " + waterIntake + " ml\nÚltimo valor calculado: " + lastWaterIntake + " ml\nAlto consumo para criança!");
         }
     }

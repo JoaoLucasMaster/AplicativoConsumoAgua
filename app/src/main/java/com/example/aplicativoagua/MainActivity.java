@@ -1,11 +1,13 @@
 package com.example.aplicativoagua;
 
 import android.annotation.SuppressLint;
+import android.app.AlarmManager;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.icu.util.Calendar;
 import android.os.Bundle;
+import android.provider.AlarmClock;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     private int actualHour;
     private int actualMinute=0;
 
+    private String message = "Hora de beber Água!";
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -58,13 +61,34 @@ public class MainActivity extends AppCompatActivity {
                 timePicker = new TimePickerDialog(MainActivity.this, new TimePickerDialog.OnTimeSetListener() {
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minutes) {
-                        hourTxt.setText(String.format("%2d", hourOfDay));
-                        minuteTxt.setText(String.format("%2d", minutes));
+                        String hourString = String.format("%02d", hourOfDay);
+                        String minuteString = String.format("%02d", minutes);
+                        hourTxt.setText(hourString);
+                        minuteTxt.setText(minuteString);
                     }
                 }, actualHour, actualMinute, true);
                 timePicker.show();
             }
+
         });
+
+            alarm.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(!hourTxt.getText().toString().isEmpty() && !minuteTxt.getText().toString().isEmpty()){
+                        Intent intention = new Intent(AlarmClock.ACTION_SET_ALARM);
+                        intention.putExtra(AlarmClock.EXTRA_HOUR, Integer.parseInt(hourTxt.getText().toString()));
+                        intention.putExtra(AlarmClock.EXTRA_MINUTES, Integer.parseInt(minuteTxt.getText().toString()));
+                        intention.putExtra(AlarmClock.EXTRA_MESSAGE, message);
+                        startActivity(intention);
+
+                        if (intention.resolveActivity(getPackageManager()) != null)
+                        {
+                            startActivity(intention);
+                        }
+                    }
+                }
+            });
 
         findViewById(R.id.calculateButton).setOnClickListener(new View.OnClickListener() {
             @Override
