@@ -111,16 +111,26 @@ public class MainActivity extends AppCompatActivity {
             int weight = Integer.parseInt(weightStr);
             int age = Integer.parseInt(ageStr);
 
-            // Seu código de cálculo aqui
-            int litros = weight*35;
+            int litros;
+
+            if (age < 18) {
+                // Crianças
+                litros = weight * 30; // Ajuste o fator multiplicador para crianças
+            } else if (age >= 18 && age <= 60) {
+                // Adultos
+                litros = weight * 35; // Ajuste o fator multiplicador para adultos
+            } else {
+                // Idosos
+                litros = weight * 25; // Ajuste o fator multiplicador para idosos
+            }
 
             // Salve o último valor de consumo de água calculado no SharedPreferences
             SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putInt("lastWaterIntake", litros); // Substitua 100 pelo valor real calculado
+            editor.putInt("lastWaterIntake", litros);
             editor.apply();
 
             Intent intent = new Intent(MainActivity.this, ResultActivity.class);
-            intent.putExtra("waterIntake", litros); // Substitua 100 pelo valor real calculado
+            intent.putExtra("waterIntake", litros);
             intent.putExtra("age", age);
             startActivity(intent);
 
